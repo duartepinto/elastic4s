@@ -60,7 +60,7 @@ object Build extends AutoPlugin {
         sys.env.getOrElse("OSSRH_PASSWORD", "")
       )
     } else {
-      credentials += Credentials(Path.userHome / ".sbt" / "credentials.sbt")
+      credentials += Credentials(Path.userHome / ".sbt" / "1.0" / "credentials.sbt")
     },
     publishTo := Sonatype.autoImport.sonatypePublishTo.value,
     scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8"),
@@ -74,10 +74,10 @@ object Build extends AutoPlugin {
     if (isTravis) {
       version := s"7.1.3.$travisBuildNumber-SNAPSHOT"
     } else {
-      version := "7.1.2"
+      version := "7.1.2-SNAPSHOT"
     },
     publishTo := {
-      val nexus = "https://oss.sonatype.org/"
+      val nexus = "http://nexus.hal9000.velocidi.io/"
       if (version.value.trim.endsWith("SNAPSHOT"))
         Some("snapshots" at nexus + "content/repositories/snapshots")
       else
