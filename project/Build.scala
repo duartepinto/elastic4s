@@ -74,7 +74,7 @@ object Build extends AutoPlugin {
     if (isTravis) {
       version := s"7.1.3.$travisBuildNumber-SNAPSHOT"
     } else {
-      version := "7.1.2-SNAPSHOT"
+      version := "7.1.2"
     },
     publishTo := {
       val nexus = "http://nexus.hal9000.velocidi.io/"
