@@ -1,1 +1,1 @@
-version in ThisBuild := "7.1.4-velocidi"
+version in ThisBuild := "7.1.5-velocidi-SNAPSHOT"
