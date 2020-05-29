@@ -57,11 +57,11 @@ lazy val publishSettings = Seq(
   releaseCrossBuild := true,
   releasePublishArtifactsAction := PgpKeys.publishSigned.value,
   publishTo := {
-    val nexus = "https://oss.sonatype.org/"
-    if (isTravis.value)
-      Some("snapshots" at nexus + "content/repositories/snapshots")
+    val nexus = "http://nexus.hal9000.velocidi.io/content/repositories/"
+    if (isSnapshot.value)
+      Some(("snapshots" at nexus + "snapshots").withAllowInsecureProtocol(true))
     else
-      Some("releases" at nexus + "service/local/staging/deploy/maven2")
+      Some(("releases" at nexus + "releases").withAllowInsecureProtocol(true))
   }
 )
 
